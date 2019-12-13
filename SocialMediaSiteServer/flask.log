@@ -1,0 +1,290 @@
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2116, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 269, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/test.py", line 1119, in run_wsgi_app
+    app_rv = app(environ, start_response)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/base.py", line 107, in __call__
+    raise InvalidQueryError(msg)
+mongoengine.errors.InvalidQueryError: Not a query object: {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=8>, 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'wsgi.multithread': True, 'wsgi.multiprocess': False, 'wsgi.run_once': False, 'werkzeug.server.shutdown': <function WSGIRequestHandler.make_environ.<locals>.shutdown_server at 0x10df3cd40>, 'SERVER_SOFTWARE': 'Werkzeug/0.16.0', 'REQUEST_METHOD': 'GET', 'SCRIPT_NAME': '', 'PATH_INFO': '/api/album/test', 'QUERY_STRING': '', 'REQUEST_URI': '/api/album/test', 'RAW_URI': '/api/album/test', 'REMOTE_ADDR': '127.0.0.1', 'REMOTE_PORT': 51066, 'SERVER_NAME': '127.0.0.1', 'SERVER_PORT': '5000', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HTTP_HOST': '127.0.0.1:5000', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_COOKIE': 'ki_r=; ki_t=1575863211818%3B1575863211818%3B1575863211818%3B1%3B1; _ga=GA1.1.795119815.1575863197; isNotIncognito=true', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', 'HTTP_ACCEPT_LANGUAGE': 'zh-cn', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate', 'HTTP_CONNECTION': 'keep-alive', 'werkzeug.request': <Request 'http://127.0.0.1:5000/api/album/test' [GET]>}. Did you intend to use key=value?
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/gyue/Programs/SocialMediaSite/SocialMediaSiteServer/views/album.py", line 13, in test
+    album_list = AlbumModel.objects().order_by('-liked', '-create_time')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/manager.py", line 37, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/document.py", line 207, in _get_collection
+    db.client.is_primary:
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1005, in is_primary
+    return self._server_property('is_writable')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 830, in _server_property
+    writable_server_selector)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 235, in select_server
+    address))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 193, in select_servers
+    selector, server_timeout, address)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 209, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: 172.0.0.1:27017: timed out
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2116, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 269, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 26, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/test.py", line 1119, in run_wsgi_app
+    app_rv = app(environ, start_response)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/base.py", line 107, in __call__
+    raise InvalidQueryError(msg)
+mongoengine.errors.InvalidQueryError: Not a query object: {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=8>, 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'wsgi.multithread': True, 'wsgi.multiprocess': False, 'wsgi.run_once': False, 'werkzeug.server.shutdown': <function WSGIRequestHandler.make_environ.<locals>.shutdown_server at 0x10e167680>, 'SERVER_SOFTWARE': 'Werkzeug/0.16.0', 'REQUEST_METHOD': 'GET', 'SCRIPT_NAME': '', 'PATH_INFO': '/api/album/test', 'QUERY_STRING': '', 'REQUEST_URI': '/api/album/test', 'RAW_URI': '/api/album/test', 'REMOTE_ADDR': '127.0.0.1', 'REMOTE_PORT': 51082, 'SERVER_NAME': '127.0.0.1', 'SERVER_PORT': '5000', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HTTP_HOST': '127.0.0.1:5000', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_COOKIE': 'ki_r=; ki_t=1575863211818%3B1575863211818%3B1575863211818%3B1%3B1; _ga=GA1.1.795119815.1575863197; isNotIncognito=true', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', 'HTTP_ACCEPT_LANGUAGE': 'zh-cn', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate', 'HTTP_CONNECTION': 'keep-alive', 'werkzeug.request': <Request 'http://127.0.0.1:5000/api/album/test' [GET]>}. Did you intend to use key=value?
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/gyue/Programs/SocialMediaSite/SocialMediaSiteServer/views/album.py", line 13, in test
+    album_list = AlbumModel.objects().order_by('-liked')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/manager.py", line 37, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/document.py", line 207, in _get_collection
+    db.client.is_primary:
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1005, in is_primary
+    return self._server_property('is_writable')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 830, in _server_property
+    writable_server_selector)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 235, in select_server
+    address))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 193, in select_servers
+    selector, server_timeout, address)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 209, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: 172.0.0.1:27017: timed out
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2116, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 269, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 26, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/test.py", line 1119, in run_wsgi_app
+    app_rv = app(environ, start_response)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/base.py", line 107, in __call__
+    raise InvalidQueryError(msg)
+mongoengine.errors.InvalidQueryError: Not a query object: {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=8>, 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'wsgi.multithread': True, 'wsgi.multiprocess': False, 'wsgi.run_once': False, 'werkzeug.server.shutdown': <function WSGIRequestHandler.make_environ.<locals>.shutdown_server at 0x10c61b680>, 'SERVER_SOFTWARE': 'Werkzeug/0.16.0', 'REQUEST_METHOD': 'GET', 'SCRIPT_NAME': '', 'PATH_INFO': '/api/album/test', 'QUERY_STRING': '', 'REQUEST_URI': '/api/album/test', 'RAW_URI': '/api/album/test', 'REMOTE_ADDR': '127.0.0.1', 'REMOTE_PORT': 51096, 'SERVER_NAME': '127.0.0.1', 'SERVER_PORT': '5000', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HTTP_HOST': '127.0.0.1:5000', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_COOKIE': 'ki_r=; ki_t=1575863211818%3B1575863211818%3B1575863211818%3B1%3B1; _ga=GA1.1.795119815.1575863197; isNotIncognito=true', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', 'HTTP_ACCEPT_LANGUAGE': 'zh-cn', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate', 'HTTP_CONNECTION': 'keep-alive', 'werkzeug.request': <Request 'http://127.0.0.1:5000/api/album/test' [GET]>}. Did you intend to use key=value?
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/gyue/Programs/SocialMediaSite/SocialMediaSiteServer/views/album.py", line 13, in test
+    album_list = AlbumModel.objects({}).order_by('-liked')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/manager.py", line 37, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/document.py", line 207, in _get_collection
+    db.client.is_primary:
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1005, in is_primary
+    return self._server_property('is_writable')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 830, in _server_property
+    writable_server_selector)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 235, in select_server
+    address))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 193, in select_servers
+    selector, server_timeout, address)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 209, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: 172.0.0.1:27017: timed out
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2116, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 269, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 26, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/test.py", line 1119, in run_wsgi_app
+    app_rv = app(environ, start_response)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/base.py", line 107, in __call__
+    raise InvalidQueryError(msg)
+mongoengine.errors.InvalidQueryError: Not a query object: {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=8>, 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'wsgi.multithread': True, 'wsgi.multiprocess': False, 'wsgi.run_once': False, 'werkzeug.server.shutdown': <function WSGIRequestHandler.make_environ.<locals>.shutdown_server at 0x10542a680>, 'SERVER_SOFTWARE': 'Werkzeug/0.16.0', 'REQUEST_METHOD': 'GET', 'SCRIPT_NAME': '', 'PATH_INFO': '/api/album/test', 'QUERY_STRING': '', 'REQUEST_URI': '/api/album/test', 'RAW_URI': '/api/album/test', 'REMOTE_ADDR': '127.0.0.1', 'REMOTE_PORT': 51230, 'SERVER_NAME': '127.0.0.1', 'SERVER_PORT': '5000', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HTTP_HOST': '127.0.0.1:5000', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_COOKIE': 'ki_r=; ki_t=1575863211818%3B1575863211818%3B1575863211818%3B1%3B1; _ga=GA1.1.795119815.1575863197; isNotIncognito=true', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', 'HTTP_ACCEPT_LANGUAGE': 'zh-cn', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate', 'HTTP_CONNECTION': 'keep-alive', 'werkzeug.request': <Request 'http://127.0.0.1:5000/api/album/test' [GET]>}. Did you intend to use key=value?
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/gyue/Programs/SocialMediaSite/SocialMediaSiteServer/views/album.py", line 13, in test
+    album_list = AlbumModel.objects.order_by('-liked')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/manager.py", line 37, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/document.py", line 207, in _get_collection
+    db.client.is_primary:
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1005, in is_primary
+    return self._server_property('is_writable')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 830, in _server_property
+    writable_server_selector)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 235, in select_server
+    address))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 193, in select_servers
+    selector, server_timeout, address)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 209, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: 172.0.0.1:27017: timed out
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2116, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 269, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py", line 26, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/werkzeug/test.py", line 1119, in run_wsgi_app
+    app_rv = app(environ, start_response)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/base.py", line 107, in __call__
+    raise InvalidQueryError(msg)
+mongoengine.errors.InvalidQueryError: Not a query object: {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=8>, 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'wsgi.multithread': True, 'wsgi.multiprocess': False, 'wsgi.run_once': False, 'werkzeug.server.shutdown': <function WSGIRequestHandler.make_environ.<locals>.shutdown_server at 0x1050a4710>, 'SERVER_SOFTWARE': 'Werkzeug/0.16.0', 'REQUEST_METHOD': 'GET', 'SCRIPT_NAME': '', 'PATH_INFO': '/api/album/test', 'QUERY_STRING': '', 'REQUEST_URI': '/api/album/test', 'RAW_URI': '/api/album/test', 'REMOTE_ADDR': '127.0.0.1', 'REMOTE_PORT': 51267, 'SERVER_NAME': '127.0.0.1', 'SERVER_PORT': '5000', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HTTP_HOST': '127.0.0.1:5000', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_COOKIE': 'ki_r=; ki_t=1575863211818%3B1575863211818%3B1575863211818%3B1%3B1; _ga=GA1.1.795119815.1575863197; isNotIncognito=true', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', 'HTTP_ACCEPT_LANGUAGE': 'zh-cn', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate', 'HTTP_CONNECTION': 'keep-alive', 'werkzeug.request': <Request 'http://127.0.0.1:5000/api/album/test' [GET]>}. Did you intend to use key=value?
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/gyue/Programs/SocialMediaSite/SocialMediaSiteServer/views/album.py", line 13, in test
+    album_list = AlbumModel.objects(name="test").order_by('-liked')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/manager.py", line 37, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/document.py", line 207, in _get_collection
+    db.client.is_primary:
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1005, in is_primary
+    return self._server_property('is_writable')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 830, in _server_property
+    writable_server_selector)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 235, in select_server
+    address))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 193, in select_servers
+    selector, server_timeout, address)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 209, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: 172.0.0.1:27017: timed out
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/gyue/Programs/SocialMediaSite/SocialMediaSiteServer/views/album.py", line 13, in test
+    album_list = AlbumModel.objects(name="test").order_by('-liked').first()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/queryset/manager.py", line 37, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/mongoengine/document.py", line 207, in _get_collection
+    db.client.is_primary:
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1005, in is_primary
+    return self._server_property('is_writable')
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/mongo_client.py", line 830, in _server_property
+    writable_server_selector)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 235, in select_server
+    address))
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 193, in select_servers
+    selector, server_timeout, address)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/pymongo/topology.py", line 209, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: 172.0.0.1:27017: timed out
+Exception on /api/album/test [GET]
+Traceback (most recent call last):
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/gyue/.local/share/virtualenvs/SocialMediaSiteServer-SQZCH-UK/lib/python3.7/site-packages/flask/app.py", line 2097, in make_response
+    "The view function did not return a valid response. The"
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
