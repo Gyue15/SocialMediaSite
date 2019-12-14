@@ -1,8 +1,8 @@
 from flask import Blueprint
 from flask import request, jsonify
-from models.user import UserModel, GroupModel
 from util.response_config import *
 from util.service_config import UserConfig
+from util.service_util import *
 
 user_blueprint = Blueprint('user', __name__)
 
@@ -31,7 +31,7 @@ def register():
     user_model.group = [group_model.id]
     user_model.save()
 
-    return jsonify(success({"data": {'user': user_model}}))
+    return jsonify(success({"data": {'user': format_user_info(user_model)}}))
 
 
 @user_blueprint.route('/login', methods=['POST'])
@@ -41,7 +41,7 @@ def login():
     found = UserModel.objects(email=email, password=password).first()
     if not found:
         return jsonify(User_wrong_param)
-    return jsonify(success({"data": {"user": found}}))
+    return jsonify(success({"data": {"user": format_user_info(found)}}))
 
 
 @user_blueprint.route('/modify', methods=['POST'])
@@ -59,7 +59,7 @@ def modify():
     user.avatar = avatar
     user.save()
 
-    return jsonify(success({"data": {"user": user}}))
+    return jsonify(success({"data": {"user": format_user_info(user)}}))
 
 
 @user_blueprint.route('/follow', methods=['POST'])
@@ -105,7 +105,7 @@ def group_create():
         user_model.group.append(group_model.id)
     user_model.save()
 
-    return jsonify(success({"data": {"group": group_model}}))
+    return jsonify(success({"data": {"group": format_group_info(group_model)}}))
 
 
 @user_blueprint.route('/group/delete', methods=['POST'])
@@ -147,10 +147,10 @@ def group_list():
     res = []
     for group_id in groups:
         group = GroupModel.objects(id=group_id).first()
-        users = group.users
+        user_ids = group.users
         g = {"name": group.name, "id": group_id, "users": []}
-        for user_id in users:
-            user = UserModel.objects(id=user_id)
+        users = UserModel.objects(id__in=user_ids)
+        for user in users:
             g['users'] = {"email": user.email, "username": user.username, "avatar": user.avatar}
         res.append(g)
     return jsonify(success({"data": {"group_list": res}}))
@@ -177,3 +177,4 @@ def group_followed_user():
         res.append({"email": user.email, "username": user.username, "avatar": user.avatar})
 
     return jsonify(success({"data": {"users": res}}))
+

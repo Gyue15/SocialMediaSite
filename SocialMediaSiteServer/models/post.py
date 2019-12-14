@@ -11,12 +11,10 @@ class AlbumModel(db.DynamicDocument):
     like_num = db.IntField(min_value=0, default=0)
     create_time = db.DateTimeField(default=lambda: datetime.datetime.utcnow())
     modify_time = db.DateTimeField(default=lambda: datetime.datetime.utcnow())
-    media_list = db.ListField(db.ObjectIdField())
-    comments = db.ListField(db.DictField(default={}))
+    media_list = db.ListField(db.ObjectIdField(), default=[])
+    comments = db.ListField(db.DictField(default={}), default=[])
     user = db.ObjectIdField()
-    viewed_users = db.ListField(db.DictField(default={}))
-    is_repeat = db.BooleanField(default=False)
-    like_user = db.ListField(db.DictField(default={}))
+    like_user = db.ListField(db.DictField(default={}), default=[])
 
 
 class MediaModel(db.DynamicDocument):
@@ -29,9 +27,9 @@ class MediaModel(db.DynamicDocument):
     public = db.BooleanField(default=False)
     tags = db.ListField(db.StringField(max_length=128))
     media_type = db.StringField(max_length=128)
-    comments = db.ListField(db.DictField(default={}))
+    comments = db.ListField(db.DictField(default={}), default=[])
     album = db.ObjectIdField()
-    is_repeat = db.BooleanField(default=False)
+    user = db.ObjectIdField()
     like_user = db.ListField(db.DictField(default={}))
 
 

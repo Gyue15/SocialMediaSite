@@ -12,6 +12,8 @@ class UserModel(db.DynamicDocument):
     collection_media = db.ListField(db.ObjectIdField(), default=[])
     like_album = db.ListField(db.ObjectIdField(), default=[])
     like_media = db.ListField(db.ObjectIdField(), default=[])
+    viewed_album = db.ListField(db.ObjectIdField(), default=[])
+    viewed_media = db.ListField(db.ObjectIdField(), default=[])
 
 
 class GroupModel(db.DynamicDocument):
